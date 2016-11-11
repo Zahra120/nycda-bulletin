@@ -1,0 +1,16 @@
+extends ./application.pug
+block content
+	.container
+		.row
+			.col-xs-6.col-xs-offset-3
+
+
+				form(class="form-horizontal" action="/" method="POST")
+					.form-group
+						label(for="exampleInputName2" class="col-sm-3") Name
+						input(type="text" class="form-control col-sm-9" id="exampleInputName2" name="name")
+
+					.form-group
+						label(for="")
+						textarea(class="form-control" rows="3" name="description")
+					button(type="submit" class="btn btn-success") add message
