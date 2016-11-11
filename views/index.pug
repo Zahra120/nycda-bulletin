@@ -1,9 +1,10 @@
 extends ./application.pug
 block content
 	each message in messages
-		.col-xs-3
+		.col-xs-8.col-xs-offset-1
 
 
-			h3= message.name
-
+			h3 Title :
+			h5= message.title
+			h3 Message :
 			p= message.description

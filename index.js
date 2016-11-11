@@ -7,7 +7,7 @@ var express = require('express'),
 
 
       var Message = sequelize.define('message', {
-        name: Sequelize.STRING,
+        title: Sequelize.STRING,
         description: Sequelize.TEXT
       });
 
@@ -15,8 +15,8 @@ var express = require('express'),
 
 
    app.get('/', function(request, response) {
-    Message.findAll().then(function(messages){
-      response.send(pug.renderFile('views/index.pug', { messages: messages }));
+      Message.findAll().then(function(messages){
+         response.send(pug.renderFile('views/index.pug', { messages: messages }));
 
    });
 
@@ -29,18 +29,18 @@ var express = require('express'),
    });
 
    app.post('/', function(request, response){
-   console.log(request.body);
-   Message.create(request.body).then(function(){
-      response.redirect('/');
-   });
+      console.log(request.body);
+      Message.create(request.body).then(function(){
+         response.redirect('/');
+      });
 
 });
 
 
 
    sequelize.sync().then(function(){
-  console.log('we are conected to database');
-  app.listen(3000, function() {
-    console.log('Web server started on port 3000');
-  });
+     console.log('we are conected to database');
+     app.listen(3000, function() {
+       console.log('Web server started on port 3000');
+     });
 });
