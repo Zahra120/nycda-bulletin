@@ -4,13 +4,13 @@ block content
 		.row
 			.col-xs-6.col-xs-offset-3
 
-
 				form(class="form-horizontal" action="/" method="POST")
 					.form-group
-						label(for="exampleInputName2" class="col-sm-3") Title
-						input(type="text" class="form-control col-sm-9" id="exampleInputName2" name="title")
+						label(for="exampleInputName2") Title
+						input(type="text" class="form-control" id="exampleInputName2" name="title")
 
 					.form-group
-						label(for="")
+						label(for="") Message
 						textarea(class="form-control" rows="3" name="description")
-					button(type="submit" class="btn btn-success") add message
+					.form-group.text-right
+						button(type="submit" class="btn btn-success") Add message

@@ -14,8 +14,8 @@ var express = require('express'),
    app.use(bodyParser.urlencoded({ extended: false }));
 
 
-   app.get('/', function(request, response) {
-      Message.findAll().then(function(messages){
+   app.get('/new', function(request, response) {
+      Message.findAll({ order: 'id DESC' }).then(function(messages){
          response.send(pug.renderFile('views/index.pug', { messages: messages }));
 
    });
@@ -24,14 +24,14 @@ var express = require('express'),
 });
 
 
-   app.get('/new', function(request, response){
+   app.get('/', function(request, response){
       response.send(pug.renderFile('views/new.pug'));
    });
 
    app.post('/', function(request, response){
       console.log(request.body);
       Message.create(request.body).then(function(){
-         response.redirect('/');
+         response.redirect('/new');
       });
 
 });
